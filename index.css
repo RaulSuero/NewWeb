@@ -1,0 +1,251 @@
+/* RESET BÁSICO  */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background: transparent;       /* todo el navbar transparente */
+  z-index: 1000;
+}
+
+.container {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+}
+
+/* Logo sin cambios */
+.logo {
+  position: absolute;
+  left: 2rem;
+}
+
+.logo img {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Nav-links centradas + efecto cristal */
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  padding: 0.5rem 3rem;
+  border-radius: 1rem;
+
+  /* fondo cristal semitranslucido */
+  background-color: rgba(255,255,255,0.1);  /* velo blanco muy tenue */
+  backdrop-filter: blur(8px);               /* desenfoque del fondo detrás */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.nav-links a:hover {
+  color: #ddd;
+}
+
+
+
+/* HERO */
+.hero {
+  position: relative;
+  background: url('/media/hero_img_op3.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Overlay para oscurecer la imagen */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Contenido centrado */
+.hero__content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Anuncio superior */
+.hero__announcement {
+  display: inline-block;
+  border: 1px solid #fff;
+  border-radius: 9999px;
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero__announcement a {
+  color: #fff;
+  text-decoration: underline;
+  margin-left: 0.25rem;
+}
+
+/* Título principal */
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Subtítulo */
+.hero__subtitle {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+/* Botón principal */
+.hero__button {
+  display: inline-block;
+  background-color: #6366f1; /* violeta similar a Tailwind indigo-500 */
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.hero__button:hover {
+  background-color: #4f46e5; /* un poco más oscuro */
+}
+
+
+
+/* EVENTOS */
+.events-section {
+  padding: 4rem 2rem;
+  background: #fff;
+}
+
+.events-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.events-header h2 {
+  font-size: 2.5rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.events-header p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Contenedor de tarjetas */
+.events-cards {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+/* Tarjeta */
+.event-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Imagen ocupa todo el contenedor */
+.event-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Overlay degradado en la parte inferior */
+.event-content {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Meta: sola fecha y avatar+nombre */
+.event-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Ocultamos tipo y descripción */
+.event-type,
+.event-description {
+  display: none;
+}
+
+/* Espacio entre fecha y avatar */
+.event-meta time {
+  margin-right: 1rem;
+}
+
+/* Avatar y nombre */
+.event-speaker {
+  display: flex;
+  align-items: center;
+}
+
+.event-speaker img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+/* Solo mostramos el nombre */
+.speaker-info .role {
+  display: none;
+}
+
+/* Título sobre el overlay */
+.event-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
