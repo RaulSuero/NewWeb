@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index-style.css">
     <title>Document</title>
 </head>
 <body>
-    <!-- NavBar -->
-    <nav class="navbar">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
             <div class="inner">
                 <!-- Logo -->
@@ -19,13 +19,14 @@
                 <!-- Enlaces -->
                 <div class="nav-links">
                     <a href="index.html">Inicio</a>
-                    <a href="">Eventos</a>
+                    <a href="eventos.html">Eventos</a>
                     <a href="">Patrocinadores</a>
                     <a href="">Legales</a>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
+
 
     <!-- Hero -->
     <section class="hero">
@@ -70,7 +71,7 @@
                     </div>
                     <h3 class="event-title">Titulo espectaculo</h3>
                     <div class="event-speaker">
-                        <img src="ponente1.jpg" alt="Foto del ponente">
+                        <img src="ponente1.jpg" alt="Foto del artista">
                         <div class="speaker-info">
                             <span class="name">nombre artista</span>
                         </div>
@@ -87,7 +88,7 @@
                     </div>
                     <h3 class="event-title">Titulo espectaculo</h3>
                     <div class="event-speaker">
-                        <img src="ponente2.jpg" alt="Foto del ponente">
+                        <img src="ponente2.jpg" alt="Foto del artista">
                         <div class="speaker-info">
                             <span class="name">nombre artista</span>
                         </div>
@@ -104,7 +105,7 @@
                     </div>
                     <h3 class="event-title">Titulo espectaculo</h3>
                     <div class="event-speaker">
-                        <img src="ponente3.jpg" alt="Foto del ponente">
+                        <img src="ponente3.jpg" alt="Foto del artista">
                         <div class="speaker-info">
                             <span class="name">nombre artista</span>
                         </div>
@@ -113,7 +114,62 @@
             </article>
         </div>
     </section>
+
+
+    <!-- Footer-->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- === Top: logo + links === -->
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="/path/to/logo.svg" alt="Logo">
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Patrocinio</h4>
+                        <ul>
+                            <li><a href="#">Patrocinadores</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Politica de cookies</a></li>
+                            <li><a href="#">Politica de privacidad</a></li>
+                            <li><a href="#">Licencia</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <hr class="footer-divider">
+        
+            <!-- === Newsletter === -->
+            <div class="footer-newsletter">
+                <div class="newsletter-text">
+                    <h3>Suscribete a nuestra Newsletter</h3>
+                    <p>Ultimas noticias y recursos.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit">Suscríbete</button>
+                </form>
+            </div>
+        
+            <hr class="footer-divider">
+        
+            <!-- === Bottom: copyright + social === -->
+            <div class="footer-bottom">
+                <p>© 2025 Festival Clásico Andaluz, todos los derechos reservados.</p>
+                <ul class="social-icons">
+                    <li><a href="#"><img src="/path/to/facebook.svg" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="/path/to/instagram.svg" alt="Instagram"></a></li>
+                    <li><a href="#"><img src="/path/to/x.svg" alt="X"></a></li>
+                    <li><a href="#"><img src="/path/to/youtube.svg" alt="YouTube"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
       
-  
 </body>
 </html>

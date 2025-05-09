@@ -1,0 +1,132 @@
+/* RESET BÁSICO  */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+/* GRID EVENTOS */
+/* header section */
+.events-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.events-header h2 {
+  font-size: 2.5rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.events-header p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Wrapper gris con bordes redondeados */
+.grid-wrapper {
+    padding: 2rem;
+    background-color: #f3f4f6;
+    border-radius: 0.75rem;
+    height: 100vh;
+  }
+  
+  /* Grid 3×3 */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Tarjeta */
+  .card {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 10rem;
+  }
+  
+  /* Header de tarjeta */
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  /* Texto (nombre, etiqueta, rol) */
+  .card-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-name {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .card-role {
+    margin: 0;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  /* Avatar */
+  .card-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Zona de botones */
+  .card-actions {
+    margin-top: auto;
+    display: flex;
+    border-top: 1px solid #e5e7eb;
+  }
+  .card-actions .info_button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    background: transparent;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .card-actions .buy_button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    background-color: #6366f1;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .card-actions button:first-child {
+    border-right: 1px solid #e5e7eb;
+  }
+  .card-actions .info_button:hover {
+    background-color: #f9fafb;
+  }
+  
+  .card-actions .buy_button:hover {
+    background-color: #4f46e5;
+  }
