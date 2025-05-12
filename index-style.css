@@ -18,7 +18,7 @@ html, body {
   top: 0; left: 0;
   width: 100%;
   padding: 1rem 0;
-  background: transparent;       /* todo el navbar transparente */
+  background: transparent;
   z-index: 1000;
 }
 
@@ -145,55 +145,89 @@ html, body {
 }
 
 
-
-/* EVENTOS */
+/* CAROUSEL DE EVENTOS */
 .events-section {
   padding: 4rem 2rem;
   background: #fff;
-  height: 100vh;
+  height: auto; /* opcional */
 }
 
+/* Header centrado */
 .events-header {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 5rem;
 }
-
 .events-header h2 {
   font-size: 2.5rem;
   color: #111827;
   margin-bottom: 0.5rem;
 }
-
 .events-header p {
   font-size: 1rem;
   color: #6b7280;
 }
 
-/* Contenedor de tarjetas */
-.events-cards {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: space-between;
-  margin-top: 2rem;
+/* Contenedor general de carrusel */
+.carousel-container {
+  position: relative;
+  margin: 0 auto;
 }
 
-/* Tarjeta */
-.event-card {
-  position: relative;
-  border-radius: 1rem;
+/* Botones Prev / Next */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.carousel-btn:hover {
+  background: rgb(206, 206, 206);
+}
+.prev { left: 0.5rem; }
+.next { right: 0.5rem; }
+
+/* Oculta el overflow para el track */
+.carousel-track-wrapper {
   overflow: hidden;
 }
 
-/* Imagen ocupa todo el contenedor */
-.event-card img {
+/* Track desplazable */
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;                /* tu separación original */
+  padding-bottom: 1rem;       /* margen inferior opcional */
+}
+
+/* Cada tarjeta ocupa ~1/3 del ancho visible */
+.carousel-track .event-card {
+  flex: 0 0 calc(33.333% - 1rem);
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 
+  0 8px 16px rgba(0, 0, 0, 0.15),
+  0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen */
+.carousel-track .event-card img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-/* Overlay degradado en la parte inferior */
+/* Overlay degradado */
 .event-content {
   position: absolute;
   bottom: 0; left: 0;
@@ -206,31 +240,26 @@ html, body {
   gap: 0.5rem;
 }
 
-/* Meta: sola fecha y avatar+nombre */
+/* Meta: fecha + avatar+nombre */
 .event-meta {
   display: flex;
   align-items: center;
   font-size: 0.875rem;
   opacity: 0.9;
 }
-
-/* Ocultamos tipo y descripción */
+.event-meta time {
+  margin-right: 1rem;
+}
 .event-type,
 .event-description {
   display: none;
 }
 
-/* Espacio entre fecha y avatar */
-.event-meta time {
-  margin-right: 1rem;
-}
-
-/* Avatar y nombre */
+/* Artista */
 .event-speaker {
   display: flex;
   align-items: center;
 }
-
 .event-speaker img {
   width: 2rem;
   height: 2rem;
@@ -238,25 +267,166 @@ html, body {
   object-fit: cover;
   margin-right: 0.5rem;
 }
-
-/* Solo mostramos el nombre */
 .speaker-info .role {
   display: none;
 }
 
-/* Título sobre el overlay */
+/* Título */
 .event-title {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
+/* Responsive: una tarjeta en móviles */
+@media (max-width: 768px) {
+  .carousel-track .event-card {
+    flex: 0 0 80%;
+  }
+}
+
+
+/* PATROCINADORES */
+.sponsors {
+  padding: 4rem 1rem;
+  background-color: #fff;
+}
+
+/* Patrocinadores */
+.sponsors .patrocinio {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.sponsors .patrocinio h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+}
+
+.sponsors .patrocinio ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sponsors .patrocinio ul li {
+  flex: 0 1 150px;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.sponsors .patrocinio ul li img {
+  display: inline-block;
+  max-height: 50px;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.sponsors .patrocinio ul li img:hover {
+  opacity: 1;
+}
+
+/* Organizador & Beneficiario */
+/* Nota: la clase "ben&org" debe escaparse en CSS */
+.sponsors .ben\&org {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sponsors .organizador,
+.sponsors .beneficio {
+  flex: 0 1 45%;
+  text-align: center;
+}
+
+.sponsors .organizador h2,
+.sponsors .beneficio h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+}
+
+.sponsors .organizador ul,
+.sponsors .beneficio ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sponsors .organizador ul li,
+.sponsors .beneficio ul li {
+  margin: 0.5rem;
+}
+
+.sponsors .organizador ul li img,
+.sponsors .beneficio ul li img {
+  display: inline-block;
+  max-height: 50px;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.sponsors .organizador ul li img:hover,
+.sponsors .beneficio ul li img:hover {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sponsors {
+    padding: 2rem 1rem;
+  }
+  .sponsors .patrocinio h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .sponsors .patrocinio ul li {
+    flex: 0 1 100px;
+    margin: 0.5rem 0;
+  }
+  .sponsors .patrocinio ul li img {
+    max-height: 40px;
+  }
+  .sponsors .ben\&org {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sponsors .organizador,
+  .sponsors .beneficio {
+    flex: 0 1 100%;
+  }
+  .sponsors .organizador h2,
+  .sponsors .beneficio h2 {
+    font-size: 1.5rem;
+  }
+  .sponsors .organizador ul li img,
+  .sponsors .beneficio ul li img {
+    max-height: 40px;
+  }
+}
+
 
 
 /* FOOTER */
 .footer {
-  background-color: #0f172a;       /* dark navy */
-  color: #e5e7eb;                  /* light gray */
+  background-color: #0f172a;
+  color: #e5e7eb;
   padding: 4rem 2rem;
   font-family: system-ui, sans-serif;
 }
@@ -404,5 +574,3 @@ html, body {
   height: 1.5rem;
 }
 
-
-/* TEST LOOP */

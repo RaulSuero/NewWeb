@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="carousel.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -20,8 +22,8 @@
                 <div class="nav-links">
                     <a href="index.html">Inicio</a>
                     <a href="eventos.html">Eventos</a>
-                    <a href="">Patrocinadores</a>
                     <a href="">Legales</a>
+                    <a href="">Comprar entradas</a>
                 </div>
             </div>
         </div>
@@ -54,6 +56,7 @@
         </div>
     </section>
 
+
     <!-- Eventos -->
     <section class="events-section">
         <div class="events-header">
@@ -61,81 +64,129 @@
             <p>Descubre nuestras actividades y no te pierdas nada.</p>
         </div>
       
-        <div class="events-cards">
-            <!-- Evento 1 -->
-            <article class="event-card">
-                <img src="/media/ej_event.jpg" alt="Imagen del primer evento">
-                <div class="event-content">
-                    <div class="event-meta">
-                        <time datetime="2025-06-15">Fecha</time> <!-- CAMBIAR FECHAS -->
-                    </div>
-                    <h3 class="event-title">Titulo espectaculo</h3>
-                    <div class="event-speaker">
-                        <img src="ponente1.jpg" alt="Foto del artista">
-                        <div class="speaker-info">
-                            <span class="name">nombre artista</span>
+        <!-- Carrusel -->
+        <div class="carousel-container">
+            <button class="carousel-btn prev">&larr;</button>
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track">
+                    <!-- Evento 1 -->
+                    <article class="event-card">
+                        <img src="/media/ej_event.jpg" alt="Imagen del primer evento">
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <time datetime="2025-06-15">15 Jun, 2025</time>
+                            </div>
+                            <h3 class="event-title">Espectáculo 1</h3>
+                            <div class="event-speaker">
+                                <img src="ponente1.jpg" alt="Foto del artista">
+                                <div class="speaker-info">
+                                    <span class="name">Nombre Artista</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </article>
-        
-            <!-- Evento 2 -->
-            <article class="event-card">
-                <img src="/media/ej_event.jpg" alt="Imagen del segundo evento">
-                <div class="event-content">
-                    <div class="event-meta">
-                        <time datetime="2025-07-01">Fecha</time>
-                    </div>
-                    <h3 class="event-title">Titulo espectaculo</h3>
-                    <div class="event-speaker">
-                        <img src="ponente2.jpg" alt="Foto del artista">
-                        <div class="speaker-info">
-                            <span class="name">nombre artista</span>
+                    </article>
+            
+                    <!-- Evento 2 -->
+                    <article class="event-card">
+                        <img src="/media/ej_event.jpg" alt="Imagen del segundo evento">
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <time datetime="2025-07-01">01 Jul, 2025</time>
+                            </div>
+                            <h3 class="event-title">Espectáculo 2</h3>
+                            <div class="event-speaker">
+                                <img src="ponente2.jpg" alt="Foto del artista">
+                                <div class="speaker-info">
+                                    <span class="name">Nombre Artista</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </article>
-        
-            <!-- Evento 3 -->
-            <article class="event-card">
-                <img src="/media/ej_event.jpg" alt="Imagen del tercer evento">
-                <div class="event-content">
-                    <div class="event-meta">
-                        <time datetime="2025-08-20">Fecha</time>
-                    </div>
-                    <h3 class="event-title">Titulo espectaculo</h3>
-                    <div class="event-speaker">
-                        <img src="ponente3.jpg" alt="Foto del artista">
-                        <div class="speaker-info">
-                            <span class="name">nombre artista</span>
+                    </article>
+            
+                    <!-- Evento 3 -->
+                    <article class="event-card">
+                        <img src="/media/ej_event.jpg" alt="Imagen del tercer evento">
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <time datetime="2025-08-20">20 Ago, 2025</time>
+                            </div>
+                            <h3 class="event-title">Espectáculo 3</h3>
+                            <div class="event-speaker">
+                                <img src="ponente3.jpg" alt="Foto del artista">
+                                <div class="speaker-info">
+                                    <span class="name">Nombre Artista</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+            
+                    <!-- (Añade más <article> aquí si quieres más slides) -->
                 </div>
-            </article>
+            </div>
+            <button class="carousel-btn next">&rarr;</button>
         </div>
     </section>
 
+        
+    <!-- Patrocinadores -->
+    <section class="sponsors">
+        <article class="patrocinio">
+            <h2>Patrocinadores</h2>
+            <ul>
+                <li>
+                    <img src="" alt="logo sponsor">
+                </li>
+                <li>
+                    <img src="" alt="logo sponsor">
+                </li>
+                <li>
+                    <img src="" alt="logo sponsor">
+                </li>
+                <li>
+                    <img src="" alt="logo sponsor">
+                </li>
+                <li>
+                    <img src="" alt="logo sponsor">
+                </li>
+            </ul>
+        </article>
+
+        <article class="ben&org">
+            <div class="organizador">
+                <h2>Organizador</h2>
+                <ul>
+                    <li>
+                        <img src="" alt="logo festival">
+                    </li>
+                </ul>
+            </div>
+            <div class="beneficio">
+                <h2>Beneficiario</h2>
+                <ul>
+                    <li>
+                        <img src="" alt="logo juegaterapia">
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </section>
+      
+      
 
     <!-- Footer-->
     <footer class="footer">
         <div class="footer-container">
-            <!-- === Top: logo + links === -->
+            <!-- Top: logo + links -->
             <div class="footer-top">
                 <div class="footer-logo">
                     <img src="/path/to/logo.svg" alt="Logo">
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Patrocinio</h4>
-                        <ul>
-                            <li><a href="#">Patrocinadores</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
                         <h4>Legal</h4>
                         <ul>
-                            <li><a href="#">Politica de cookies</a></li>
-                            <li><a href="#">Politica de privacidad</a></li>
+                            <li><a href="#">Política de cookies</a></li>
+                            <li><a href="#">Política de privacidad</a></li>
                             <li><a href="#">Licencia</a></li>
                         </ul>
                     </div>
@@ -144,11 +195,11 @@
         
             <hr class="footer-divider">
         
-            <!-- === Newsletter === -->
+            <!-- Newsletter -->
             <div class="footer-newsletter">
                 <div class="newsletter-text">
-                    <h3>Suscribete a nuestra Newsletter</h3>
-                    <p>Ultimas noticias y recursos.</p>
+                    <h3>Suscríbete a nuestra Newsletter</h3>
+                    <p>Últimas noticias y recursos.</p>
                 </div>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Email" required>
@@ -158,7 +209,7 @@
         
             <hr class="footer-divider">
         
-            <!-- === Bottom: copyright + social === -->
+            <!-- Bottom: copyright + social -->
             <div class="footer-bottom">
                 <p>© 2025 Festival Clásico Andaluz, todos los derechos reservados.</p>
                 <ul class="social-icons">
