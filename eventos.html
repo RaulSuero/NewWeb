@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="eventos-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animacionTarjetas.js"></script>
+    <script src="buscador.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -47,9 +51,25 @@
 
     <!-- Eventos -->
     <section class="grid-wrapper" id="eventos">
+        <!-- Buscador -->
+        <div class="search-container">
+            <input
+                type="search"
+                id="event-search"
+                placeholder="Buscar evento…"
+                aria-label="Buscar evento"
+            >
+
+            <input
+                type="date"
+                id="date-filter"
+                aria-label="Filtrar por fecha"
+            >
+
+            <button type="button" id="clear-filters" class="clear-button">Limpiar</button>
+        </div>
 
         <div class="grid-container">
-
             <!-- Tarjeta 1 -->
             <div class="card">
                 <div class="card-text">
@@ -101,7 +121,7 @@
             <!-- Tarjeta 5 -->
             <div class="card">
                 <div class="card-text">
-                    <h3 class="card-name">Nombre evento</h3>
+                    <h3 class="card-name">Raul</h3>
                     <p class="card-role">Fecha evento y Hora</p>
                 </div>
                 <div class="card-actions">
@@ -114,7 +134,7 @@
             <div class="card">
                 <div class="card-text">
                     <h3 class="card-name">Nombre evento</h3>
-                    <p class="card-role">Fecha evento y Hora</p>
+                    <p class="card-role">12/05/2025 19:00</p>
                 </div>
                 <div class="card-actions">
                     <button type="button" class="info_button">Información</button>
@@ -158,8 +178,10 @@
                 </div>
             </div>
         </div>
+        <div class="back-to-top">
+            <a href="#eventos">Volver arriba</a>
+        </div>
     </section>
-    
 
        <!-- Footer-->
     <footer class="footer">
