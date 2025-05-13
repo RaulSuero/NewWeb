@@ -11,7 +11,6 @@ html, body {
 }
 
 
-
 /* HEADER */
 .header {
   position: fixed;
@@ -66,7 +65,6 @@ html, body {
 .nav-links a:hover {
   color: #ddd;
 }
-
 
 
 /* HERO */
@@ -286,6 +284,32 @@ html, body {
 }
 
 
+/* ALL EVENTS */
+.all-events {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Enlace con estilo de botón */
+.all-events a {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #6366f1;
+  color: #6366f1;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Hover/Focus */
+.all-events a:hover,
+.all-events a:focus {
+  transform: translateY(-2px);
+}
+
+
 /* PATROCINADORES */
 .sponsors {
   padding: 4rem 1rem;
@@ -422,7 +446,6 @@ html, body {
 }
 
 
-
 /* FOOTER */
 .footer {
   background-color: #0f172a;
@@ -444,11 +467,6 @@ html, body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
-}
-
-/* Logo */
-.footer-logo img {
-  height: 2rem;
 }
 
 /* Links */
@@ -520,6 +538,7 @@ html, body {
 
 .newsletter-form input {
   flex: 1;
+  width: 400px;
   padding: 0.75rem 1rem;
   border: 1px solid #374151;
   border-radius: 0.375rem;
@@ -573,4 +592,3 @@ html, body {
   width: 1.5rem;
   height: 1.5rem;
 }
-

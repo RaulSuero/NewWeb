@@ -1,0 +1,292 @@
+/* RESET BÁSICO  */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    z-index: 1000;
+}
+
+.container {
+    position: relative;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+}
+
+/* Logo sin cambios */
+.logo {
+    position: absolute;
+    left: 2rem;
+}
+
+.logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Nav-links centradas + efecto cristal */
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    padding: 0.5rem 3rem;
+    border-radius: 1rem;
+
+    /* fondo cristal semitranslucido */
+    background-color: rgba(255,255,255,0.1);  /* velo blanco muy tenue */
+    backdrop-filter: blur(8px);               /* desenfoque del fondo detrás */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .2s;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+
+/* HERO */
+.hero {
+    position: relative;
+    background: url('/media/hero_img_op3.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Overlay para oscurecer la imagen */
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+/* Contenido centrado */
+.hero__content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Anuncio superior */
+.hero__announcement {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 9999px;
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero__announcement a {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 0.25rem;
+}
+
+/* Título principal */
+.hero__title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+/* Subtítulo */
+.hero__subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+/* Botón principal */
+.hero__button {
+    display: inline-block;
+    background-color: #6366f1;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.hero__button:hover {
+    background-color: #4f46e5;
+}
+
+
+/* FOOTER */
+.footer {
+    background-color: #0f172a;
+    color: #e5e7eb;
+    padding: 4rem 2rem;
+    font-family: system-ui, sans-serif;
+  }
+  
+  /* Center & max-width */
+  .footer-container {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  
+  /* Top section */
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  /* Links */
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  
+  .footer-column h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .footer-column a {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-column a:hover {
+    color: #fff;
+  }
+  
+  /* Divider */
+  .footer-divider {
+    border: none;
+    border-top: 1px solid #374151;
+    margin: 2rem 0;
+  }
+  
+  /* Newsletter */
+  .footer-newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .newsletter-text h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .newsletter-text p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #9ca3af;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .newsletter-form input {
+    flex: 1;
+    width: 400px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #374151;
+    border-radius: 0.375rem;
+    background: transparent;
+    color: #fff;
+    font-size: 0.875rem;
+  }
+  .newsletter-form input::placeholder {
+    color: #6b7280;
+  }
+  .newsletter-form button {
+    padding: 0.75rem 1.5rem;
+    background-color: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .newsletter-form button:hover {
+    background-color: #4f46e5;
+  }
+  
+  /* Bottom section */
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #9ca3af;
+  }
+  
+  .social-icons {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .social-icons li img {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }

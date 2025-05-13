@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="animacionTarjetas.js"></script>
     <script src="buscador.js"></script>
+    <script src="modal.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -71,10 +72,21 @@
 
         <div class="grid-container">
             <!-- Tarjeta 1 -->
-            <div class="card">
+            <div class="card"
+                data-title="La Cenicienta"
+                data-subtitle="Gran Hotel de los sueños"
+                data-location="ATARFE. Centro Cultural Medina Elvira"
+                data-datetime="06/06/2025 19:00"
+                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Pellentesque sit amet pharetra erat, ac porttitor diam. Maecenas ac porttitor enim. 
+                    Aliquam lectus ex, euismod id nunc ut, egestas vulputate velit. 
+                    Fusce nunc nisi, imperdiet ut blandit a, gravida sit amet magna. 
+                    Suspendisse scelerisque mattis odio, et feugiat purus aliquet sed. 
+                    Nam sed nibh elit. Aenean arcu dui, auctor at diam vestibulum, eleifend egestas mauris."
+                data-image="/media/ej_event.jpg">
                 <div class="card-text">
-                    <h3 class="card-name">Nombre evento</h3>
-                    <p class="card-role">Fecha evento y Hora</p>
+                    <h3 class="card-name">La Cenicienta</h3>
+                    <p class="card-role">06/06/2025 19:00</p>
                 </div>
                 <div class="card-actions">
                     <button type="button" class="info_button">Información</button>
@@ -183,7 +195,33 @@
         </div>
     </section>
 
-       <!-- Footer-->
+
+    <!-- Modal -->
+    <div id="event-modal" class="modal-overlay" hidden>
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-content">
+                <!-- Imagen -->
+                <div class="modal-image-container">
+                <img src="" alt="" class="modal-image">
+                </div>
+                <!-- Detalles -->
+                <div class="modal-details">
+                <h2 class="modal-title"></h2>
+                <p class="modal-subtitle"></p>
+                <div class="modal-meta">
+                    <span class="modal-location"></span>
+                    <span class="modal-datetime"></span>
+                </div>
+                <p class="modal-description"></p>
+                <button class="modal-buy">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+
+    <!-- Footer-->
     <footer class="footer">
         <div class="footer-container">
             <!-- Top: logo + links -->
