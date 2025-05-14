@@ -13,7 +13,6 @@ html, body {
 }
 
 
-
 /* HEADER */
 .header {
   position: fixed;
@@ -72,7 +71,6 @@ html, body {
 }
 
 
-
 /* HERO */
 .hero {
   position: relative;
@@ -115,7 +113,6 @@ html, body {
   opacity: 0.8;
   margin-bottom: 2rem;
 }
-
 
 
 /* BUSCADOR */
@@ -207,7 +204,6 @@ html, body {
   overflow: hidden;
   height: 20rem;
 
-  background-image: url('/media/ej_event.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% auto;               /* empieza al 100% */
@@ -215,17 +211,18 @@ html, body {
 }
 
 .card:hover {
-  background-size: 110% auto;
+  background-size: 105% auto;
 }
 
 /* Texto */
 .card-text {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 1rem;
-
-  margin-top: 200px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  margin-top: auto;
 }
 
 .card-name {
