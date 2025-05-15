@@ -314,84 +314,59 @@ mix-blend-mode: difference; /* cambia el color de links segun el fondo */
 }
 
 
-/* COLABORADORES */
-.collaborators {
+/* UBICACIONES */
+.ubications {
   padding: 2rem 8rem;
   background: #fff;
   color: #111827;
 }
 
-.collaborators-header {
+/* Header centrado */
+.ubications-header {
   text-align: center;
   max-width: 600px;
   margin: 0 auto 3rem;
 }
-.collaborators-header h2 {
+.ubications-header h2 {
   font-size: 2.5rem;
   color: #111827;
   margin-bottom: 0.5rem;
 }
-.collaborators-header p {
+.ubications-header p {
   font-size: 1rem;
   color: #6b7280;
 }
 
-/* Lista en fila */
-.collaborators_list {
+.ubications-list {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-/* Cada colaborador */
-.collaborator {
-  flex: 0 1 calc(33.333% - 1.333rem);
+/* cada ubicación con ancho fijo pero responsivo */
+.ubication {
+  flex: 0 1 300px;            /* ocupa 300px como base */
+  max-width: 300px;
   text-align: center;
 }
 
-.collaborator img {
+/* Imagen con tamaño uniforme */
+.ubication img {
   width: 100%;
-  height: auto;
-  border-radius: 0.75rem;
+  height: 200px;              /* altura fija para todas */
   object-fit: cover;
+  border-radius: 0.75rem;
   display: block;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-
 }
 
-/* Nombre */
-.collaborator h3 {
+/* Nombre de ubicación */
+.ubication h3 {
   margin: 1rem 0 0.25rem;
   font-size: 1.25rem;
   font-weight: 600;
 }
-
-/* Puesto */
-.collaborator p {
-  margin: 0;
-  font-size: 1rem;
-  color: #6b7280;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .collaborator {
-    flex: 0 1 calc(50% - 1rem);
-  }
-}
-@media (max-width: 480px) {
-  .collaborator {
-    flex: 0 1 100%;
-  }
-  .collaborators__title {
-    font-size: 2rem;
-  }
-  .collaborators__subtitle {
-    font-size: 0.95rem;
-  }
-}
-
 
 
 /* PATROCINADORES */
