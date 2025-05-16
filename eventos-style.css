@@ -373,6 +373,13 @@ html, body {
   color: #4b5563;
 }
 
+.modal-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ed1848;        /* un color precio */
+  margin: 0.5rem 0 1rem;
+}
+
 /* Meta (ubicación + fecha) */
 .modal-meta {
   display: flex;
@@ -420,7 +427,67 @@ html, body {
   cursor: pointer;
 }
 
+/* MODAL PAYPAL */
+.quantity-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
 
+.quantity-group label {
+  font-weight: 500;
+  color: #111827;
+}
+
+.quantity-group input {
+  width: 4rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  text-align: center;
+}
+
+/* Overlay específico PayPal */
+.paypal-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: grid;
+  place-items: center;
+  z-index: 3000;
+}
+
+.paypal-modal-overlay[hidden] {
+  display: none;
+}
+
+/* Caja del modal PayPal */
+.paypal-modal {
+  background: #fff;
+  border-radius: 0.5rem;
+  width: 28rem;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Botón cerrar */
+.paypal-modal-close {
+  position: absolute;
+  top: 0.75rem; right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+/* Cuerpo del modal */
+.paypal-modal-body {
+  margin-top: 1rem;
+}
 
 
 /* FOOTER */

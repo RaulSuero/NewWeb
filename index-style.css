@@ -316,7 +316,7 @@ mix-blend-mode: difference; /* cambia el color de links segun el fondo */
 
 /* UBICACIONES */
 .ubications {
-  padding: 2rem 8rem;
+  padding: 2rem 4rem;
   background: #fff;
   color: #111827;
 }
@@ -327,11 +327,13 @@ mix-blend-mode: difference; /* cambia el color de links segun el fondo */
   max-width: 600px;
   margin: 0 auto 3rem;
 }
+
 .ubications-header h2 {
   font-size: 2.5rem;
   color: #111827;
   margin-bottom: 0.5rem;
 }
+
 .ubications-header p {
   font-size: 1rem;
   color: #6b7280;
@@ -346,9 +348,14 @@ mix-blend-mode: difference; /* cambia el color de links segun el fondo */
 
 /* cada ubicación con ancho fijo pero responsivo */
 .ubication {
-  flex: 0 1 300px;            /* ocupa 300px como base */
-  max-width: 300px;
+  width: 20rem;
+  height: auto;
   text-align: center;
+}
+
+.ubication a {
+  text-decoration: none;
+  color: #0f172a;
 }
 
 /* Imagen con tamaño uniforme */
