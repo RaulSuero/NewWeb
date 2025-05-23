@@ -5,19 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const qtyInput = document.getElementById('paypal-quantity');
   
     function openPayPalModal(ev) {
-        // 1) Obtener precio unitario del botón
+        // Obtener precio unitario del botón
         const btn = ev.currentTarget;
         const unitPrice = parseFloat(btn.dataset.price) || 0;
     
-        // 2) Mostrar modal y limpiar contenedor
+        // Mostrar modal y limpiar contenedor
         modalOverlay.hidden = false;
         buttonDiv.innerHTML = '';
     
-        // 3) Cuando cambiemos la cantidad, podemos opcionalmente
-        //    actualizar algo previo al pago (no imprescindible).
+        // Cuando cambiemos la cantidad, podemos opcionalmente
+        // actualizar algo previo al pago (no imprescindible).
         qtyInput.value = 1;
     
-        // 4) Cargar y renderizar PayPal
+        // Cargar y renderizar PayPal
         paypal.Buttons({
             createOrder: (data, actions) => {
                 // lee cantidad y calcula total
@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('No se pudo cargar PayPal.');
             closeModal();
         });
+
+
     }
   
     function closeModal() {

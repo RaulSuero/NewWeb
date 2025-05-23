@@ -1,0 +1,57 @@
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    z-index: 1000;
+}
+    
+.container {
+    position: relative;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+    
+/* Logo sin cambios */
+.logo {
+    position: absolute;
+    left: 2rem;
+}
+    
+.logo img {
+    width: 50px;
+    height: auto;
+}
+    
+/* Nav-links centradas + efecto cristal */
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    padding: 0.5rem 3rem;
+    border-radius: 1rem;
+    
+    /* fondo cristal semitranslucido */
+    background-color: rgba(255,255,255,0.1);  /* velo blanco muy tenue */
+    backdrop-filter: blur(8px);               /* desenfoque del fondo detrás */
+}
+    
+.nav-links a {
+    color: black;
+    mix-blend-mode: difference; /* cambia el color de links segun el fondo */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .2s;
+}
+    
+.nav-links a:hover {
+    color: #ddd;
+    mix-blend-mode: difference; /* cambia el color de links segun el fondo */
+}
+    
