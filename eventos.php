@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style/eventos-style.css">
     <link rel="stylesheet" href="style/header-style.css">
     <link rel="stylesheet" href="style/footer-style.css">
+    <link rel="stylesheet" href="style/modal-style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="animacionTarjetas.js"></script>
@@ -106,7 +107,7 @@
     </section>
 
 
-    <!-- Modal -->
+    <!-- Modal informacion-->
     <div id="event-modal" class="modal-overlay" hidden>
         <div class="modal">
             <button class="modal-close">&times;</button>

@@ -3,7 +3,8 @@
 
     // Obtenemos los 3 (limit 3) siguientes eventos por fecha
     $stmt = $pdo->prepare("
-        SELECT titulo, artista, bg_image, start_datetime
+        SELECT titulo, artista, bg_image, info_image, start_datetime,
+            ubicacion, descripcion, precio
         FROM shows
         WHERE start_datetime >= NOW()
         ORDER BY start_datetime
@@ -25,11 +26,14 @@
     <link rel="stylesheet" href="style/index-style.css">
     <link rel="stylesheet" href="style/header-style.css">
     <link rel="stylesheet" href="style/footer-style.css">
+    <link rel="stylesheet" href="style/modal-style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="carousel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="modalCarrusel.js"></script>
     <script src="animacionUbicaciones.js"></script>
+    <script src="modalPaypal.js"></script>
     <title>Festival Clásico Andaluz</title>
 </head>
 <body>
@@ -50,7 +54,7 @@
 
             <!-- Subtítulo -->
             <p class="hero_subtitle">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
+                Donde la tradición cobra vida
             </p>
 
             <!-- Botón único -->
@@ -72,30 +76,36 @@
         <div class="carousel-container">
             <button class="carousel-btn prev">&larr;</button>
             <div class="carousel-track-wrapper">
-            <div class="carousel-track">
-                <?php foreach ($events as $event): ?>
-                <article class="event-card">
-                <img 
-                    src="<?= htmlspecialchars($event['bg_image'], ENT_QUOTES) ?>" 
-                    alt="Imagen de <?= htmlspecialchars($event['titulo'], ENT_QUOTES) ?>"
-                >
-                <div class="event-content">
-                    <div class="event-meta">
-                        <time 
-                            datetime="<?= date('Y-m-d', strtotime($event['start_datetime'])) ?>"
-                        >
-                            <?= date('d M, Y', strtotime($event['start_datetime'])) ?>
-                        </time>
-                    </div>
-                    <h3 class="event-title">
-                    <?= htmlspecialchars($event['titulo'], ENT_QUOTES) ?>
-                    </h3>
-                    <div class="name">
-                        <?= htmlspecialchars($event['artista'], ENT_QUOTES) ?>
-                    </div>
-                </div>
-                </article>
-                <?php endforeach; ?>
+                <div class="carousel-track">
+                    <?php foreach ($events as $event): ?>
+                    <article class="event-card"
+                            data-image="<?= htmlspecialchars($event['info_image'], ENT_QUOTES) ?>"
+                            data-title="<?= htmlspecialchars($event['titulo'], ENT_QUOTES) ?>"
+                            data-subtitle="<?= htmlspecialchars($event['artista'], ENT_QUOTES) ?>"
+                            data-location="<?= htmlspecialchars($event['ubicacion'], ENT_QUOTES) ?>"
+                            data-datetime="<?= htmlspecialchars(
+                                                date('d/m/Y H:i', strtotime($event['start_datetime'])),
+                                                ENT_QUOTES) ?>"
+                            data-description="<?= htmlspecialchars($event['descripcion'], ENT_QUOTES) ?>"
+                            data-price="<?= number_format($event['precio'],2,'.','')  ?>"
+                    >
+                        <img src="<?= htmlspecialchars($event['bg_image'], ENT_QUOTES) ?>"
+                            alt="<?= htmlspecialchars($event['titulo'], ENT_QUOTES) ?>">
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <time datetime="<?= date('Y-m-d', strtotime($event['start_datetime'])) ?>">
+                                    <?= date('d M, Y', strtotime($event['start_datetime'])) ?>
+                                </time>
+                            </div>
+                                <h3 class="event-title">
+                                    <?= htmlspecialchars($event['titulo'], ENT_QUOTES) ?>
+                                </h3>
+                            <div class="name">
+                                <?= htmlspecialchars($event['artista'], ENT_QUOTES) ?>
+                            </div>
+                        </div>
+                    </article>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <button class="carousel-btn next">&rarr;</button>
@@ -182,11 +192,63 @@
             </div>
         </article>
     </section>
-    
 
+
+    <!-- Modal informacion-->
+    <div id="event-modal" class="modal-overlay" hidden>
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-content">
+                <div class="modal-image-container">
+                    <img src="" alt="" class="modal-image">
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title"></h2>
+                    <p class="modal-subtitle"></p>
+            
+                    <div class="modal-meta">
+                        <span class="modal-location"></span>
+                        <span class="modal-datetime"></span>
+                    </div>
+
+                    <p class="modal-description"></p>
+
+                    <p class="modal-price"></p>
+
+                    <button class="modal-buy">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal PayPal -->
+    <div id="paypalCheckoutModal" class="paypal-modal-overlay" hidden>
+        <div class="paypal-modal">
+            <button class="paypal-modal-close">&times;</button>
+            <div class="paypal-modal-body">
+                <!-- Selector de cantidad -->
+                <div class="quantity-group">
+                    <label for="paypal-quantity">Cantidad:</label>
+                    <input type="number" id="paypal-quantity" min="1" value="1">
+                </div>
+                <!-- Contenedor del botón PayPal -->
+                <div id="paypal-button-container-checkout"></div>
+            </div>
+        </div>
+    </div>
+
+    
     <!-- Footer-->
     <?php
         include 'footer.php';
     ?>
+
+    <!-- paypal -->
+    <!-- carga del SDK con tu Client-ID de Sandbox -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ARLEHJk-zLao4Ee_VJ2srEY7AhcN2kNlIqB94OMLRNl7eAbgVhr0kAQA7KbqafVtirDgeEydIINMGv4U&currency=EUR"
+        data-sdk-integration-source="button-factory">
+    </script>
 </body>
 </html>

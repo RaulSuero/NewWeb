@@ -44,6 +44,18 @@
                 El acceso a este material no supondrá en forma alguna, licencia para su reproducción y/o distribución que, en todo caso, 
                 estará prohibida salvo previo y expreso consentimiento del Festival Clásico Andaluz. 
                 La persona usuaria se compromete a usar este Portal exclusivamente para uso personal.
+            </p><br>
+            <p>
+                El Festival Clásico Andaluz está comprometido con la inclusión y accesibilidad para todas las personas. 
+                Por este motivo, todas nuestras instalaciones y espacios están debidamente equipados y adaptados para personas con discapacidad o movilidad reducida.
+                <br><br>
+                En este sentido, informamos a nuestros asistentes que no será necesario adquirir entradas diferenciadas o específicas para personas con discapacidad, 
+                ya que en el momento del evento se contará con personal especializado encargado de proporcionar la asistencia y acomodación necesarias.
+                <br><br>
+                Nuestro equipo de atención estará disponible en todo momento para asegurar una experiencia cómoda, segura e integradora para todos los asistentes.
+                <br><br>
+                Para cualquier consulta adicional relacionada con la accesibilidad o servicios especiales durante el festival, 
+                por favor póngase en contacto con la organización a través de nuestros canales oficiales de comunicación.
             </p>
         </article>
     
