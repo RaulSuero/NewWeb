@@ -1,125 +1,129 @@
 /* MODAL */
 /* Overlay */
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: grid;
-    place-items: center;
-    z-index: 2000;
-  }
-  .modal-overlay[hidden] {
-    display: none;
-  }
-  /* Ajustes generales de la caja */
-  .modal {
-    background: #fff;
-    border-radius: 0.5rem;
-    width: 60rem;
-    height: 40rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-rows: 1fr; /* 1 fila, para que .modal-content ocupe todo */
-  }
-  
-  /* Contenido en dos columnas, ocupando todo el alto */
-  .modal-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100%;      /* llena todo el modal */
-  }
-  
-  /* Columna de imagen ocupa 50% de ancho y todo el alto */
-  .modal-image-container {
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  /* Imagen a tope del contenedor */
-  .modal-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  /* Columna de detalles también 50% ancho, con scroll si hace falta */
-  .modal-details {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    box-sizing: border-box;
-    overflow-y: auto;           /* para textos largos */
-  }
-  
-  /* Encabezados y textos */
-  .modal-title {
-    margin: 0 0 0.5rem;
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  .modal-subtitle {
-    margin: 0 0 1rem;
-    font-size: 1.125rem;
-    color: #4b5563;
-  }
-  
-  .modal-price {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #ed1848;        /* un color precio */
-    margin: 0.5rem 0 1rem;
-  }
-  
-  /* Meta (ubicación + fecha) */
-  .modal-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    font-size: 0.95rem;
-    color: #6b7280;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Descripción ocupa el espacio restante */
-  .modal-description {
-    flex: 1;
-    margin: 0 0 1.5rem;
-    line-height: 1.6;
-    color: #374151;
-  }
-  
-  /* Botón Comprar fijo al pie de la columna de detalles */
-  .modal-buy {
-    flex-shrink: 0;
-    padding: 0.75rem;
-    background-color: #6366f1;
-    color: #fff;
-    border: none;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    width: 100%;
-  }
-  .modal-buy:hover {
-    background-color: #4f46e5;
-  }
-  
-  /* Botón de cerrar */
-  .modal-close {
-    position: absolute;
-    top: 1rem; right: 1rem;
-    z-index: 10;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #6b7280;
-    cursor: pointer;
-  }
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+/* Ajustes generales de la caja */
+.modal {
+  background: #fff;
+  border-radius: 0.5rem;
+  width: 60rem;
+  height: 40rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr; /* 1 fila, para que .modal-content ocupe todo */
+}
+
+/* Contenido en dos columnas, ocupando todo el alto */
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;      /* llena todo el modal */
+}
+
+/* Columna de imagen ocupa 50% de ancho y todo el alto */
+.modal-image-container {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Imagen a tope del contenedor */
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Columna de detalles también 50% ancho, con scroll si hace falta */
+.modal-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;           /* para textos largos */
+}
+
+/* Encabezados y textos */
+.modal-title {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+.modal-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ed1848;        /* un color precio */
+  margin: 0.5rem 0 1rem;
+}
+
+/* Meta (ubicación + fecha) */
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* Descripción ocupa el espacio restante */
+.modal-description {
+  flex: 1;
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* Botón Comprar fijo al pie de la columna de detalles */
+.modal-buy {
+  flex-shrink: 0;
+  padding: 0.75rem;
+  background-color: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.modal-buy:hover {
+  background-color: #4f46e5;
+}
+
+/* Botón de cerrar */
+.modal-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  z-index: 10;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+}
 
 
 /* MODAL PAYPAL */
@@ -182,4 +186,117 @@
 /* Cuerpo del modal */
 .paypal-modal-body {
   margin-top: 1rem;
+}
+
+
+/* Tablet 1024px */
+@media screen and (max-width: 1024px) {
+  /* Caja modal genérica */
+  .modal {
+    width: 80vw;
+    max-width: 50rem;
+    height: auto;
+    max-height: 90vh;
+  }
+  /* Pasa a 1 columna apilada */
+  .modal-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .modal-image-container {
+    display: none;
+  }
+  .modal-details {
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(90vh - 200px);
+  }
+  /* Ajustes tipográficos */
+  .modal-title {
+    font-size: 1.75rem;
+  }
+  .modal-subtitle {
+    font-size: 1rem;
+  }
+  .modal-price {
+    font-size: 1.125rem;
+  }
+  .modal-meta {
+    font-size: 0.9rem;
+    gap: 1rem;
+  }
+  .modal-buy {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  /* Caja PayPal */
+  .paypal-modal {
+    width: 85vw;
+    max-width: 24rem;
+    padding: 1.2rem;
+  }
+  .paypal-modal-body {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Móvil 767px */
+@media screen and (max-width: 767px) {
+  /* Caja modal genérica */
+  .modal {
+    width: 90vw;
+    max-width: 30rem;
+    height: auto;
+    max-height: 95vh;
+  }
+  .modal-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .modal-image-container {
+    display: none;
+  }
+  .modal-details {
+    padding: 1rem;
+    max-height: calc(95vh - 180px);
+  }
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  .modal-subtitle {
+    font-size: 0.95rem;
+  }
+  .modal-price {
+    font-size: 1rem;
+  }
+  .modal-meta {
+    font-size: 0.85rem;
+    gap: 0.75rem;
+  }
+  .modal-description {
+    font-size: 0.9rem;
+  }
+  .modal-buy {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  .modal-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  /* Caja PayPal */
+  .paypal-modal {
+    width: 90vw;
+    max-width: 20rem;
+    padding: 1rem;
+  }
+  .paypal-modal-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.25rem;
+  }
 }

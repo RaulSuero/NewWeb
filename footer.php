@@ -1,3 +1,4 @@
+<!-- NEWSLETTER -->
 <?php
 require_once 'config.php';
 
@@ -68,13 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 <!-- Footer-->
 <footer class="footer">
     <div class="footer-container">
         <!-- Top: logo + links -->
         <div class="footer-top">
             <div class="footer-logo">
-                <img src="/path/to/logo.svg" alt="Logo">
+                <img src="media/patrocina/logo_fest_final blanco.svg" alt="Logo">
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -129,3 +131,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </footer>
+
+
+<!-- COOKIES -->
+<script>
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days*864e5).toUTCString();
+        document.cookie = name + '=' + value + '; expires=' + expires + '; path=/';
+    }
+    function getCookie(name) {
+        return document.cookie.split('; ').reduce((r, v) => {
+            const parts = v.split('=');
+            return parts[0] === name ? decodeURIComponent(parts[1]) : r
+        }, '');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            setCookie('site_consent', 'yes', 365);
+            banner.remove();
+            // Recarga la página para que header.php detecte el cambio y cargue GA
+            location.reload();
+        });
+        document.getElementById('reject-cookies').addEventListener('click', () => {
+            setCookie('site_consent', 'no', 365);
+            banner.remove();
+        });
+    });
+</script>

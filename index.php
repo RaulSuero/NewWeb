@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="style/index-style.css">
     <link rel="stylesheet" href="style/header-style.css">
     <link rel="stylesheet" href="style/footer-style.css">
+    <link rel="stylesheet" href="style/cookies-style.css">
     <link rel="stylesheet" href="style/modal-style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="carousel.js"></script>

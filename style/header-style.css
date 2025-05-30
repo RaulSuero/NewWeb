@@ -19,10 +19,15 @@
     height: auto;
 }
     
-/* Logo sin cambios */
 .logo {
     position: absolute;
     left: 2rem;
+    border-radius: 100%;
+    padding: 0.3px 2px;
+    
+    /* fondo cristal semitranslucido */
+    background-color: rgba(255,255,255,0.4);  /* velo blanco muy tenue */
+    backdrop-filter: blur(8px);  /* desenfoque del fondo detrás */
 }
     
 .logo img {
@@ -38,20 +43,71 @@
     border-radius: 1rem;
     
     /* fondo cristal semitranslucido */
-    background-color: rgba(255,255,255,0.1);  /* velo blanco muy tenue */
-    backdrop-filter: blur(8px);               /* desenfoque del fondo detrás */
+    background-color: rgba(255,255,255,0.4);  /* velo blanco muy tenue */
+    backdrop-filter: blur(8px);                 /* desenfoque del fondo detrás */
 }
     
 .nav-links a {
     color: black;
-    mix-blend-mode: difference; /* cambia el color de links segun el fondo */
     text-decoration: none;
     font-weight: 600;
     transition: color .2s;
 }
     
 .nav-links a:hover {
-    color: #ddd;
-    mix-blend-mode: difference; /* cambia el color de links segun el fondo */
+    color: #959595;
 }
-    
+
+
+/* Tablet 1024px */
+@media screen and (max-width: 1024px) {
+    .header {
+        padding: 0.75rem 0;
+    }
+    .container {
+        padding: 0 1.5rem;
+    }
+    .logo {
+        left: 1.5rem;
+    }
+    .logo img {
+        width: 40px;
+    }
+    .nav-links {
+        gap: 2rem;
+        padding: 0.5rem 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+}
+  
+  /* Móvil 767px */
+  @media screen and (max-width: 767px) {
+    .header {
+      padding: 0.5rem 0;
+    }
+    .container {
+      padding: 0 1rem;
+    }
+    .logo {
+      left: 1rem;
+    }
+    .logo img {
+      width: 35px;
+    }
+    .nav-links {
+      gap: 1.5rem;
+      padding: 0.5rem 1rem;
+      backdrop-filter: blur(6px);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      padding: 0.25rem 0; /* más espacio táctil */
+    }
+}
+  

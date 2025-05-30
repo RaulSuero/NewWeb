@@ -95,6 +95,7 @@
                         type="button"
                         class="buy_button"
                         data-price="<?= number_format($show['precio'], 2, '.', '') ?>"
+                        data-show-id="<?= $show['id'] ?>"
                     >Comprar</button>
                 </div>
             </div>
@@ -173,7 +174,6 @@
                 const target = document.getElementById('eventos');
 
                 if (target) {
-                    // un retardo mínimo garantiza que todo el layout esté listo
                     setTimeout(() => {
                         target.scrollIntoView({ behavior: 'smooth' });
                     }, 50);
