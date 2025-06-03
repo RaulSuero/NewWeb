@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="style/footer-style.css">
     <link rel="stylesheet" href="style/cookies-style.css">
     <link rel="stylesheet" href="style/modal-style.css">
+    <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="carousel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -35,6 +36,7 @@
     <script src="modalCarrusel.js"></script>
     <script src="animacionUbicaciones.js"></script>
     <script src="modalPaypal.js"></script>
+    
     <title>Festival Clásico Andaluz</title>
 </head>
 <body>

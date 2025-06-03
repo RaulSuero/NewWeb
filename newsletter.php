@@ -56,7 +56,7 @@ if (empty($event['venue_image'])) {
         <!-- Cabecera con logo -->
         <tr>
             <td align="center" style="background:#1a1a2e;padding:20px;">
-                <img src="media/patrocina/logo_fest_final.svg"
+                <img src="media/patrocina/logo_fest_final blanco.svg"
                     alt="Festival Clásico Andaluz" width="50px"
                     style="display:block;">
             </td>

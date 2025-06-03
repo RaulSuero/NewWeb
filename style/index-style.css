@@ -422,14 +422,15 @@ html, body {
 
   .sponsors .patrocinio ul {
     flex-wrap: wrap;
+    gap: 2rem;
   }
 
   .sponsors .patrocinio ul li {
     flex: none;
-    width: 100%;          /* ocupa todo el ancho del contenedor */
-    max-width: 300px;     /* opcional, ajusta según diseño */
+    width: 100%;
+    max-width: 300px;
     text-align: center;
-    margin: 10 auto;       /* centra cada li si no usa todo el ancho */
+    margin: 10 auto;
   }
 
   .sponsors .ben\&org {
