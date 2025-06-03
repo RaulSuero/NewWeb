@@ -1,0 +1,125 @@
+/* RESET BÁSICO  */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+  }
+
+  
+/* Contenedor principal */
+.account-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    margin-top: 6rem;
+    padding: 0 1rem;
+    font-family: system-ui, sans-serif;
+    color: #111827;
+  }
+  
+  /* Sección de datos de usuario */
+  .account-info {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .account-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .account-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .account-info ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .account-info li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  /* Botón de logout */
+  .logout-form {
+    text-align: center;
+  }
+  
+  .logout-button {
+    background-color: #ef4444; /* Rojo */
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .logout-button:hover {
+    background-color: #dc2626;
+  }
+  
+  /* Historial de pedidos */
+  .order-history {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+  }
+  
+  .order-history h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb; /* gris claro */
+  }
+  
+  .orders-table th {
+    background-color: #f3f4f6; /* gris muy claro */
+    font-weight: 600;
+  }
+  
+  .orders-table tbody tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  /* Mensaje cuando no hay pedidos */
+  .order-history p {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  
+  /* Responsive: en pantallas pequeñas, la tabla se hace scrollable */
+  @media screen and (max-width: 640px) {
+    .orders-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  

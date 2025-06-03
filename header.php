@@ -1,4 +1,7 @@
 <?php
+    // Iniciar sesión y conexión a BD (si aún no se incluye en páginas previas)
+    require_once 'config.php';
+
     // Comprueba si ya existe la cookie 'site_consent'
     $consent = $_COOKIE['site_consent'] ?? null;
 
@@ -12,6 +15,7 @@
         gtag('config', 'TU-ID-GA');
     </script>
 <?php endif;
+
 // BANNER DE COOKIES
 if ($consent !== 'yes' && $consent !== 'no'): ?>
 <div id="cookie-banner" class="cookie-banner">
@@ -34,8 +38,16 @@ if ($consent !== 'yes' && $consent !== 'no'): ?>
             <div class="nav-links">
                 <a href="index.php">Inicio</a>
                 <a href="eventos.php">Eventos</a>
-                <a href="legales.php">Legales</a>
                 <a href="eventos.php#eventos">Comprar entradas</a>
+
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <!-- Usuario autenticado -->
+                    <a href="account.php">Mi cuenta</a>
+                <?php else: ?>
+                    <!-- Usuario no autenticado -->
+                    <a href="login.php">Iniciar sesión</a>
+                    <a href="register.php">Registrarse</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

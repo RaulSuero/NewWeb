@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+session_start(); // Necesario para acceder a $_SESSION['user_id']
 
 // Leer el cuerpo de la petición
 $input = file_get_contents('php://input');
@@ -23,6 +24,9 @@ if (
     exit;
 }
 
+// Sacar el user_id de sesión (si está logueado)
+$userId = $_SESSION['user_id'] ?? null;
+
 // Conexión a la base de datos
 try {
     $pdo = new PDO(
@@ -41,11 +45,12 @@ try {
 }
 
 // Preparar e insertar, ignorando duplicados por order_id
+// Ahora incluimos la columna user_id
 $sql = "
     INSERT IGNORE INTO orders
-      (order_id, payer_id, show_id, quantity, amount, currency, status)
+      (order_id, payer_id, user_id, show_id, quantity, amount, currency, status)
     VALUES
-      (:order_id, :payer_id, :show_id, :quantity, :amount, :currency, :status)
+      (:order_id, :payer_id, :user_id, :show_id, :quantity, :amount, :currency, :status)
 ";
 $stmt = $pdo->prepare($sql);
 
@@ -53,6 +58,7 @@ try {
     $stmt->execute([
         ':order_id'  => $data['order_id'],
         ':payer_id'  => $data['payer_id'],
+        ':user_id'   => $userId,
         ':show_id'   => $data['show_id'],
         ':quantity'  => $data['quantity'],
         ':amount'    => $data['amount'],
@@ -67,4 +73,4 @@ try {
         'ok'    => false,
         'error' => 'Error al guardar la orden: ' . $e->getMessage()
     ]);
-}
+} 
