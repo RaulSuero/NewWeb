@@ -36,14 +36,12 @@ $ordenes = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Estilos globales -->
   <link rel="stylesheet" href="style/index-style.css" />
   <link rel="stylesheet" href="style/header-style.css" />
   <link rel="stylesheet" href="style/footer-style.css" />
-  <!-- Estilo específico para account -->
   <link rel="stylesheet" href="style/account-style.css" />
+  <script src="modalQR.js"></script>
   <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg" />
-
   <title>Festival Clásico Andaluz</title>
 </head>
 <body>
@@ -53,7 +51,7 @@ $ordenes = $stmt->fetchAll();
   <main class="account-container">
     <!-- Sección: Datos de la cuenta -->
     <section class="account-info">
-      <h1>Bienvenido, <?= htmlspecialchars($user['nombre']) ?></h1>
+      <h1>Bienvenid@, <?= htmlspecialchars($user['nombre']) ?></h1>
       <h2>Datos de tu cuenta</h2>
       <ul>
         <li><strong>Nombre:</strong> <?= htmlspecialchars($user['nombre']) ?></li>
@@ -80,6 +78,7 @@ $ordenes = $stmt->fetchAll();
               <th>Cantidad</th>
               <th>Importe (€)</th>
               <th>Fecha de Compra</th>
+              <th>Ticket</th>
             </tr>
           </thead>
           <tbody>
@@ -90,6 +89,12 @@ $ordenes = $stmt->fetchAll();
                 <td><?= htmlspecialchars($o['quantity']) ?></td>
                 <td><?= number_format($o['amount'], 2, ',', '.') ?></td>
                 <td><?= date('d/m/Y H:i', strtotime($o['order_date'])) ?></td>
+                <td>
+                  <!-- Botón para abrir el modal QR, guardamos order_id en data-attribute -->
+                  <button class="qr-button" data-order-id="<?= htmlspecialchars($o['order_id']) ?>">
+                    Ver QR
+                  </button>
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
@@ -97,6 +102,15 @@ $ordenes = $stmt->fetchAll();
       <?php endif; ?>
     </section>
   </main>
+
+  <!-- Modal de QR -->
+  <div id="qrModal" class="qr-modal-overlay">
+    <div class="qr-modal">
+      <button class="qr-modal-close">&times;</button>
+      <h3>Código QR de tu entrada</h3>
+      <img id="qrImage" class="qr-code-img" src="" alt="Código QR">
+    </div>
+  </div>
 
   <!-- Footer -->
   <?php include 'footer.php'; ?>
