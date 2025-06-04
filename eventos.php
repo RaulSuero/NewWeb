@@ -2,7 +2,10 @@
     require_once 'config.php';
 
     // 1) Preparamos y ejecutamos la consulta
-    $stmt = $pdo->query("SELECT * FROM shows ORDER BY start_datetime");
+    $stmt = $pdo->query("SELECT *
+        FROM shows
+        WHERE start_datetime >= NOW()
+        ORDER BY start_datetime");
 
     // 2) Obtenemos todos los registros
     $shows = $stmt->fetchAll();
