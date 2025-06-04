@@ -1,46 +1,48 @@
-/* ----------------------------------------
-1. Contenedor principal (centrado)
----------------------------------------- */
+/* RESET BÁSICO  */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
 .auth-container {
 min-height: calc(100vh - 200px); /* Deja espacio para header + footer */
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: #fafafa; /* Muy sutil, para diferenciar del formulario */
+background-color: #fafafa;
 padding: 2rem 1rem;
 }
 
-/* ----------------------------------------
-    2. Caja del formulario
----------------------------------------- */
 .login-box {
 background-color: #ffffff;
 width: 100%;
 max-width: 400px;
-border-radius: 0.75rem; /* Igual que tarjetas de eventos (.event-card) */
+border-radius: 0.75rem;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 padding: 2rem;
 }
 
-/* ----------------------------------------
-    3. Título del formulario
----------------------------------------- */
 .auth-title {
 font-size: 2rem;
 font-weight: 700;
-color: #111827; /* Mismo color de textos principales (.events-header h2) */
+color: #111827;
 margin-bottom: 1.5rem;
 text-align: center;
 }
 
-/* ----------------------------------------
-    4. Etiquetas + campos de entrada
----------------------------------------- */
 .login-form label {
 display: block;
 font-size: 0.9rem;
 font-weight: 500;
-color: #374151; /* Gris oscuro */
+color: #374151;
 margin-bottom: 0.5rem;
 }
 
@@ -51,21 +53,17 @@ margin-bottom: 1.25rem;
 font-size: 1rem;
 color: #111827;
 background-color: #f9fafb;
-border: 1px solid #d1d5db; /* Gris claro */
+border: 1px solid #d1d5db;
 border-radius: 0.5rem;
 transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .login-form input:focus {
 outline: none;
-border-color: #6366f1; /* Púrpura (igual que botones) */
+border-color: #6366f1;
 box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
-/* ----------------------------------------
-    5. Botón principal (“Entrar”)
-    (estilo basado en .hero_button)
----------------------------------------- */
 .auth-button {
 display: inline-block;
 width: 100%;
@@ -86,9 +84,6 @@ transition: background-color 0.2s;
 background-color: #4f46e5;
 }
 
-/* ----------------------------------------
-    6. Texto de pie de formulario + enlaces
----------------------------------------- */
 .auth-footer-text {
 font-size: 0.9rem;
 color: #6b7280;
@@ -128,20 +123,22 @@ text-decoration: underline;
   }
   
 
-/* ----------------------------------------
-    7. Media queries para pantallas pequeñas
----------------------------------------- */
-@media screen and (max-width: 640px) {
-.login-box {
-    padding: 1.5rem;
-    max-width: 90%;
-}
+/* MEDIA QUERIES */
+@media screen and (max-width: 767px) {
+  .auth-container {
+    padding-top: 150px;
+  }
 
-.auth-title {
-    font-size: 1.75rem;
-}
+  .login-box {
+      padding: 1.5rem;
+      max-width: 90%;
+  }
 
-.login-form input {
-    padding: 0.65rem 0.9rem;
-}
+  .auth-title {
+      font-size: 1.75rem;
+  }
+
+  .login-form input {
+      padding: 0.65rem 0.9rem;
+  }
 }

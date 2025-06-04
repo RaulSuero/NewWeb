@@ -1,86 +1,16 @@
-<!-- NEWSLETTER -->
-<?php
-require_once 'config.php';
-
-$success = '';
-$error   = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 1) Validar email
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    if (!$email) {
-        $error = 'Por favor introduce un email válido.';
-    } else {
-        // 2) Comprobar si ya existe
-        $stmt = $pdo->prepare("SELECT * FROM subscribers WHERE email = ?");
-        $stmt->execute([$email]);
-        $sub = $stmt->fetch();
-
-        if (!$sub) {
-            // Nuevo suscriptor -> insert + generar token
-            $token = bin2hex(random_bytes(32));
-            $ins = $pdo->prepare("
-                INSERT INTO subscribers (email, confirmation_token)
-                VALUES (:email, :token)
-            ");
-            $ins->execute(['email' => $email, 'token' => $token]);
-        } elseif (!$sub['is_confirmed']) {
-            // Ya existe pero no confirmado -> reusar o regenerar token
-            $token = $sub['confirmation_token']
-                   ?: bin2hex(random_bytes(32));
-            if (!$sub['confirmation_token']) {
-                $pdo->prepare("
-                    UPDATE subscribers
-                    SET confirmation_token = ?
-                    WHERE id = ?
-                ")->execute([$token, $sub['id']]);
-            }
-        } else {
-            // Ya existe y confirmado
-            $error = 'Esta dirección ya está suscrita.';
-        }
-    }
-
-    // 3) Si no hay error, enviamos el email de confirmación
-    if (!$error) {
-        // Apunta a tu servidor local
-        $confirmLink = sprintf(
-            'http://localhost:8000/confirm.php?token=%s',
-            $token
-        );
-        $subject = 'Confirma tu suscripción al Festival Clásico Andaluz';
-        $message = "¡Hola!\n\n"
-                 . "Para completar tu suscripción, haz clic en este enlace:\n\n"
-                 . $confirmLink . "\n\n"
-                 . "Si no fuiste tú, ignora este mensaje.";
-        // From local
-        $headers = "From: no-reply@localhost\r\n"
-                 . "Content-Type: text/plain; charset=UTF-8";
-
-        // Parámetro -f para envelope-from
-        $params = '-fno-reply@localhost';
-
-        if (mail($email, $subject, $message, $headers, $params)) {
-            $success = '¡Gracias! Revisa tu email para confirmar tu suscripción.';
-        } else {
-            $error = 'Error enviando el email de confirmación. Inténtalo de nuevo más tarde.';
-        }
-    }
-}
-?>
-
-
 <!-- Footer-->
 <footer class="footer">
     <div class="footer-container">
         <!-- Top: logo + links -->
         <div class="footer-top">
             <div class="footer-logo">
-                <img src="media/patrocina/logo_fest_final blanco.svg" alt="Logo">
+                <a href="index.php">
+                    <img src="media/patrocina/logo_fest_final blanco.svg" alt="Logo">
+                </a>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Legal</h4>
+                    <h4><a href="legales.php">Legal</a></h4>
                     <ul>
                         <li><a href="legales.php#aviso">Aviso legal</a></li>
                         <li><a href="legales.php#cookies">Política de cookies</a></li>
@@ -88,33 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </ul>
                 </div>
             </div>
-        </div>
-    
-        <hr class="footer-divider">
-
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-            <div class="newsletter-text">
-                <h3>Suscríbete a nuestra Newsletter</h3>
-                <p>Próximos eventos y recursos.</p>
-            </div>
-
-            <?php if ($success): ?>
-                <p class="newsletter-success"><?= $success ?></p>
-            <?php elseif ($error): ?>
-                <p class="newsletter-error"><?= $error ?></p>
-            <?php endif; ?>
-
-            <form class="newsletter-form" method="post" action="">
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>"
-                >
-                <button type="submit">Suscríbete</button>
-            </form>
         </div>
 
         <hr class="footer-divider">

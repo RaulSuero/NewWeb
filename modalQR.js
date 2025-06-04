@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Función para abrir el modal y asignar la URL del QR
   function openQRModal(ev) {
     const orderId = ev.currentTarget.getAttribute('data-order-id');
-    // URL de Google Chart API para generar un QR de 200x200 con el order_id
-    const qrUrl = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=' 
+    // Usamos la API de QR Server en lugar de Google Charts
+    const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='
                   + encodeURIComponent(orderId);
     qrImage.src = qrUrl;
     modalOverlay.style.display = 'flex';

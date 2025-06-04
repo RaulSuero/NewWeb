@@ -36,7 +36,6 @@ $ordenes = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style/index-style.css" />
   <link rel="stylesheet" href="style/header-style.css" />
   <link rel="stylesheet" href="style/footer-style.css" />
   <link rel="stylesheet" href="style/account-style.css" />
@@ -76,8 +75,8 @@ $ordenes = $stmt->fetchAll();
               <th>Espectáculo</th>
               <th>Fecha del Evento</th>
               <th>Cantidad</th>
-              <th>Importe (€)</th>
-              <th>Fecha de Compra</th>
+              <th class="importe">Importe (€)</th>
+              <th class="fechaCompra">Fecha de Compra</th>
               <th>Ticket</th>
             </tr>
           </thead>
@@ -87,13 +86,13 @@ $ordenes = $stmt->fetchAll();
                 <td><?= htmlspecialchars($o['titulo']) ?></td>
                 <td><?= date('d/m/Y H:i', strtotime($o['start_datetime'])) ?></td>
                 <td><?= htmlspecialchars($o['quantity']) ?></td>
-                <td><?= number_format($o['amount'], 2, ',', '.') ?></td>
-                <td><?= date('d/m/Y H:i', strtotime($o['order_date'])) ?></td>
+                <td class="importe"><?= number_format($o['amount'], 2, ',', '.') ?></td>
+                <td class="fechaCompra"><?= date('d/m/Y H:i', strtotime($o['order_date'])) ?></td>
                 <td>
-                  <!-- Botón para abrir el modal QR, guardamos order_id en data-attribute -->
-                  <button class="qr-button" data-order-id="<?= htmlspecialchars($o['order_id']) ?>">
-                    Ver QR
-                  </button>
+                    <!-- Botón para abrir el modal QR, guardamos order_id en data-attribute -->
+                    <button class="qr-button" data-order-id="<?= htmlspecialchars($o['order_id']) ?>">
+                        Ver QR
+                    </button>
                 </td>
               </tr>
             <?php endforeach; ?>
