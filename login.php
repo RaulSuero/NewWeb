@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style/header-style.css" />
     <link rel="stylesheet" href="style/footer-style.css" />
     <link rel="stylesheet" href="style/auth-style.css" />
+    <link rel="stylesheet" href="style/cookies-style.css">
     <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg" />
     <title>Festival Clásico Andaluz</title>
 </head>

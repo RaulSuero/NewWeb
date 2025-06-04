@@ -39,7 +39,8 @@ $ordenes = $stmt->fetchAll();
   <link rel="stylesheet" href="style/header-style.css" />
   <link rel="stylesheet" href="style/footer-style.css" />
   <link rel="stylesheet" href="style/account-style.css" />
-  <script src="modalQR.js"></script>
+  <link rel="stylesheet" href="style/cookies-style.css">
+  <script src="scripts/modalQR.js"></script>
   <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg" />
   <title>Festival Clásico Andaluz</title>
 </head>

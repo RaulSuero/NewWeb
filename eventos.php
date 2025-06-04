@@ -20,13 +20,14 @@
     <link rel="stylesheet" href="style/header-style.css">
     <link rel="stylesheet" href="style/footer-style.css">
     <link rel="stylesheet" href="style/modal-style.css">
+    <link rel="stylesheet" href="style/cookies-style.css">
     <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="animacionTarjetas.js"></script>
-    <script src="buscador.js"></script>
-    <script src="modal.js"></script>
-    <script src="modalPaypal.js"></script>
+    <script src="scripts/animacionTarjetas.js"></script>
+    <script src="scripts/buscador.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/modalPaypal.js"></script>
     <title>Festival Clásico Andaluz</title>
 </head>
 <body>
