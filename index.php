@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="style/cookies-style.css">
     <link rel="stylesheet" href="style/modal-style.css">
     <link rel="icon" type="image/svg+xml" href="media/favicon/favicon.svg">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="scripts/carousel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

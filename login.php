@@ -1,13 +1,16 @@
 <?php
-    require_once 'config.php';
-    if (isset($_SESSION['user_id'])) {
-        header('Location: index.php');
-        exit;
-    }
-    $error   = $_GET['error']   ?? '';
-    $success = $_GET['success'] ?? '';
-?>
+require_once 'config.php';
 
+// Si ya está logueado, al índice
+if (isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit;
+}
+
+// Recogemos mensajes opcionales
+$error = $_GET['error']   ?? '';
+$success = $_GET['success'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,14 +24,24 @@
     <title>Festival Clásico Andaluz</title>
 </head>
 <body>
-    <!-- Header -->
     <?php include 'header.php'; ?>
+
+    <!-- Alert JS para mostrar mensajes -->
+    <?php if ($error): ?>
+        <script>
+            alert(<?php echo json_encode($error, JSON_UNESCAPED_UNICODE); ?>);
+        </script>
+    <?php endif; ?>
+
+    <?php if ($success): ?>
+        <script>
+            alert(<?php echo json_encode($success, JSON_UNESCAPED_UNICODE); ?>);
+        </script>
+    <?php endif; ?>
 
     <main class="auth-container">
         <div class="login-box">
             <h2 class="auth-title">Iniciar Sesión</h2>
-
-            <!-- Formulario de login -->
             <form action="login-process.php" method="POST" class="login-form">
                 <label for="email">Correo Electrónico</label>
                 <input
@@ -58,7 +71,6 @@
         </div>
     </main>
 
-    <!-- Footer común -->
     <?php include 'footer.php'; ?>
 </body>
 </html>
